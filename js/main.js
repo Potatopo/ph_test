@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const validators = {
         email: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
         fullname: /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+(?: [a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+)*$/,
-        phone: /^\+48[0-9]{9}$/,
+        phone: /^\+48\s\d{2}\s\d{7}$/,
         country: /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+(?: [a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+)*$/,
         postcode: /^[0-9]{2}-[0-9]{3}$/,
         city: /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+(?: [a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+)*$/,
@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
         } else if (isValid) {
             input.classList.add('validated');
             input.classList.remove('error');
+            input.classList.remove('not-validated');
         } else {
             input.classList.add('not-validated');
             input.classList.add('error');
