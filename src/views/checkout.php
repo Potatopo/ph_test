@@ -138,7 +138,11 @@
                 <p class="checkout-form__note" style="display: none;">Тепер ви можете продовжити покупки. Після оформлення замовлення ви отримаєте посилання для підтвердження реєстрації акаунту.</p>
             </div>
 
-            <button type="submit" class="checkout-form__submit">Перейти до доставки</button>
+            <div class="checkout-form__footer">
+                <button type="submit" class="checkout-form__submit">Перейти до доставки</button>
+                <span class="checkout-form__footer-text">Потрібна допомога з оформленням замовлення? З радістю допоможемо!</span>
+            </div>
+            
         </form>
     </div>
     
