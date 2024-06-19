@@ -4,7 +4,9 @@ services:
   php:
     image: php:8.3.7-cli
     volumes:
-      - ./src:/var/www/html
+      - ./public:/var/www/html
+      - ./vendor:/var/www/html/vendor
+      - ./src:/var/www/html/src
     ports:
       - "8080:8080"
     command: php -S 0.0.0.0:8080 -t /var/www/html

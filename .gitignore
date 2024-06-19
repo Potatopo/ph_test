@@ -1,2 +1,5 @@
-# Ігнорувати кеш PHP CS Fixer
+/node_modules
+/vendor
+/public/js/main.js
+/public/css/main.css
 .php-cs-fixer.cache
