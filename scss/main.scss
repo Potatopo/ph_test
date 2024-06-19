@@ -107,6 +107,12 @@ body {
         outline: none;
         box-sizing: border-box;
 
+        &#country,
+        &#otherCountry {
+            pointer-events: none;
+            cursor: not-allowed;
+        }
+
         &.validated {
             background: $--surface-green;
 

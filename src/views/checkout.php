@@ -47,7 +47,7 @@
                 <span class="checkout-form__not-validated">Необхідно ввести номер у форматі +48</span>
             </div>
             <div class="checkout-form__group">
-                <input type="text" id="country" name="country" class="checkout-form__input">
+                <input type="text" id="country" name="country" class="checkout-form__input validated" value="Польща">
                 <label for="country" class="checkout-form__label">Країна *</label>
                 <span class="checkout-form__checkmark"></span>
                 <span class="checkout-form__error">Обов’язкове поле</span>
@@ -103,7 +103,7 @@
                 <span class="checkout-form__not-validated">Необхідно ввести номер у форматі +48</span>
             </div>
             <div class="checkout-form__group checkout-form__group--hidden">
-                <input type="text" id="otherCountry" name="otherCountry" class="checkout-form__input">
+                <input type="text" id="otherCountry" name="otherCountry" class="checkout-form__input validated" value="Польща">
                 <label for="otherCountry" class="checkout-form__label">Країна *</label>
                 <span class="checkout-form__checkmark"></span>
                 <span class="checkout-form__error">Обов’язкове поле</span>
