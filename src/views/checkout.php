@@ -77,7 +77,8 @@
             
             <div class="checkout-form__group checkout-form__group--checkbox">
                 <input type="checkbox" id="otherReceiver" name="otherReceiver" class="checkout-form__checkbox">
-                <label for="otherReceiver" class="checkout-form__label">Інший одержувач (внести дані для іншого одержувача)</label>
+                <label for="otherReceiver" class="checkout-form__checkbox-styler"></label>
+                <label for="otherReceiver" class="checkout-form__label">Інший одержувач <i>(внести дані для іншого одержувача)</i></label>
             </div>
             
             <div class="checkout-form__group checkout-form__group--hidden">
@@ -130,13 +131,13 @@
                 <span class="checkout-form__not-validated">Некоректна адреса</span>
             </div>
             
-            <div class="checkout-form__group">
+            <div class="checkout-form__group checkout-form__group--checkbox">
                 <input type="checkbox" id="receiveOffers" name="receiveOffers" class="checkout-form__checkbox">
+                <label for="receiveOffers" class="checkout-form__checkbox-styler"></label>
                 <label for="receiveOffers" class="checkout-form__label">Я хочу першим отримувати акційні пропозиції та поради від експертів на електронну пошту</label>
+                <p class="checkout-form__note" style="display: none;">Тепер ви можете продовжити покупки. Після оформлення замовлення ви отримаєте посилання для підтвердження реєстрації акаунту.</p>
             </div>
-            
-            <p class="checkout-form__note" style="display: none;">Тепер ви можете продовжити покупки. Після оформлення замовлення ви отримаєте посилання для підтвердження реєстрації акаунту.</p>
-            
+
             <button type="submit" class="checkout-form__submit">Перейти до доставки</button>
         </form>
     </div>
