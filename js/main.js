@@ -36,22 +36,21 @@ document.addEventListener('DOMContentLoaded', function () {
         country: /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+(?: [a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+)*$/,
         postcode: /^[0-9]{2}-[0-9]{3}$/,
         city: /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+(?: [a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+)*$/,
-        address: /^[a-zA-Z0-9ąćęłńóśźżĄĆĘŁŃÓŚŹŻ\s]+$/,
+        address: /^[a-zA-Z0-9ąćęłńóśźżĄĆĘŁŃÓŚŹŻ\s,-]+$/,
         otherEmail: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
         otherFullname: /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+(?: [a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+)*$/,
         otherPhone: /^\+48\s\d{2}\s\d{7}$/,
         otherCountry: /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+(?: [a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+)*$/,
         otherPostcode: /^[0-9]{2}-[0-9]{3}$/,
         otherCity: /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+(?: [a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+)*$/,
-        otherAddress: /^[a-zA-Z0-9ąćęłńóśźżĄĆĘŁŃÓŚŹŻ\s]+$/
+        otherAddress: /^[a-zA-Z0-9ąćęłńóśźżĄĆĘŁŃÓŚŹŻ\s,-]+$/
     };
 
-    // Validation function
+    // Function to validate input and update classes
     function validateInput(input) {
         const inputValue = input.value.trim();
         const inputName = input.getAttribute('name');
 
-        // Check if there is a validator for the input name
         if (validators.hasOwnProperty(inputName)) {
             const isValid = validators[inputName].test(inputValue);
 
@@ -92,7 +91,58 @@ document.addEventListener('DOMContentLoaded', function () {
             input.addEventListener('blur', function () {
                 validateInput(input);
             });
+
+            // Additional event listener for postcode field to fetch city and address
+            if (input.getAttribute('name') === 'postcode' || input.getAttribute('name') === 'otherPostcode') {
+                input.addEventListener('change', function () {
+                    const postcodeValue = input.value.trim();
+                    fetchCityAndAddress(postcodeValue, input.getAttribute('name'));
+                });
+            }
         });
+    }
+
+    // Function to fetch city and address from Google Maps API
+    async function fetchCityAndAddress(postcode, inputName) {
+        const apiKey = 'YOUR_GOOGLE_MAPS_API_KEY'; // Replace with your Google Maps API key
+        const url = `https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:${postcode}%7Ccountry:PL&key=${apiKey}`;
+
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error('Network response was not ok.');
+            }
+            const data = await response.json();
+            const results = data.results[0];
+
+            if (results) {
+                const formattedAddress = results.formatted_address;
+
+                // Update city and address fields
+                let cityInput, addressInput;
+
+                if (inputName === 'postcode') {
+                    cityInput = document.querySelector('input[name="city"]');
+                    addressInput = document.querySelector('input[name="address"]');
+                } else if (inputName === 'otherPostcode') {
+                    cityInput = document.querySelector('input[name="otherCity"]');
+                    addressInput = document.querySelector('input[name="otherAddress"]');
+                }
+
+                if (cityInput) cityInput.value = results.address_components.find(component =>
+                    component.types.includes('locality')
+                ).long_name || '';
+                if (addressInput) addressInput.value = formattedAddress || '';
+
+                // Validate updated fields
+                validateInput(cityInput);
+                validateInput(addressInput);
+            } else {
+                console.error('No results found for the provided postcode.');
+            }
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
     }
 
     initializeInputs(); // Initialize inputs on page load
