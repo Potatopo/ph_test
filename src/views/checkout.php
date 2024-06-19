@@ -29,36 +29,50 @@
                 <input type="email" id="email" name="email" class="checkout-form__input">
                 <label for="email" class="checkout-form__label">Email *</label>
                 <span class="checkout-form__checkmark"></span>
+                <span class="checkout-form__error">Обов’язкове поле</span>
+                <span class="checkout-form__not-validated">У введеному email пропущені символи</span>
             </div>
             <div class="checkout-form__group">
                 <input type="text" id="fullname" name="fullname" class="checkout-form__input">
                 <label for="fullname" class="checkout-form__label">Ім’я та прізвище *</label>
                 <span class="checkout-form__checkmark"></span>
+                <span class="checkout-form__error">Обов’язкове поле</span>
+                <span class="checkout-form__not-validated">Необхідно використати A-z символи</span>
             </div>
             <div class="checkout-form__group">
                 <input type="tel" id="phone" name="phone" class="checkout-form__input">
                 <label for="phone" class="checkout-form__label">Phone *</label>
                 <span class="checkout-form__checkmark"></span>
+                <span class="checkout-form__error">Обов’язкове поле</span>
+                <span class="checkout-form__not-validated">Необхідно ввести номер у форматі +48</span>
             </div>
             <div class="checkout-form__group">
                 <input type="text" id="country" name="country" class="checkout-form__input">
                 <label for="country" class="checkout-form__label">Країна *</label>
                 <span class="checkout-form__checkmark"></span>
+                <span class="checkout-form__error">Обов’язкове поле</span>
+                <span class="checkout-form__not-validated">Некоректна назва країни</span>
             </div>
             <div class="checkout-form__group">
                 <input type="text" id="postcode" name="postcode" class="checkout-form__input">
                 <label for="postcode" class="checkout-form__label">Поштовий код *</label>
                 <span class="checkout-form__checkmark"></span>
+                <span class="checkout-form__error">Обов’язкове поле</span>
+                <span class="checkout-form__not-validated">Необхідно ввести код у форматі XX-XXX</span>
             </div>
             <div class="checkout-form__group">
                 <input type="text" id="city" name="city" class="checkout-form__input">
                 <label for="city" class="checkout-form__label">Місто *</label>
                 <span class="checkout-form__checkmark"></span>
+                <span class="checkout-form__error">Обов’язкове поле</span>
+                <span class="checkout-form__not-validated">Некоректна назва міста</span>
             </div>
             <div class="checkout-form__group">
                 <input type="text" id="address" name="address" class="checkout-form__input">
                 <label for="address" class="checkout-form__label">Вулиця і номер будинку *</label>
                 <span class="checkout-form__checkmark"></span>
+                <span class="checkout-form__error">Обов’язкове поле</span>
+                <span class="checkout-form__not-validated">Некоректна адреса</span>
             </div>
             
             <div class="checkout-form__group checkout-form__group--checkbox">
@@ -70,36 +84,50 @@
                 <input type="email" id="otherEmail" name="otherEmail" class="checkout-form__input">
                 <label for="otherEmail" class="checkout-form__label">Email *</label>
                 <span class="checkout-form__checkmark"></span>
+                <span class="checkout-form__error">Обов’язкове поле</span>
+                <span class="checkout-form__not-validated">У введеному email пропущені символи</span>
             </div>
             <div class="checkout-form__group checkout-form__group--hidden">
                 <input type="text" id="otherFullname" name="otherFullname" class="checkout-form__input">
                 <label for="otherFullname" class="checkout-form__label">Ім’я та прізвище *</label>
                 <span class="checkout-form__checkmark"></span>
+                <span class="checkout-form__error">Обов’язкове поле</span>
+                <span class="checkout-form__not-validated">Необхідно використати A-z символи</span>
             </div>
             <div class="checkout-form__group checkout-form__group--hidden">
                 <input type="tel" id="otherPhone" name="otherPhone" class="checkout-form__input">
                 <label for="otherPhone" class="checkout-form__label">Phone *</label>
                 <span class="checkout-form__checkmark"></span>
+                <span class="checkout-form__error">Обов’язкове поле</span>
+                <span class="checkout-form__not-validated">Необхідно ввести номер у форматі +48</span>
             </div>
             <div class="checkout-form__group checkout-form__group--hidden">
                 <input type="text" id="otherCountry" name="otherCountry" class="checkout-form__input">
                 <label for="otherCountry" class="checkout-form__label">Країна *</label>
                 <span class="checkout-form__checkmark"></span>
+                <span class="checkout-form__error">Обов’язкове поле</span>
+                <span class="checkout-form__not-validated">Некоректна назва країни</span>
             </div>
             <div class="checkout-form__group checkout-form__group--hidden">
                 <input type="text" id="otherPostcode" name="otherPostcode" class="checkout-form__input">
                 <label for="otherPostcode" class="checkout-form__label">Поштовий код *</label>
                 <span class="checkout-form__checkmark"></span>
+                <span class="checkout-form__error">Обов’язкове поле</span>
+                <span class="checkout-form__not-validated">Необхідно ввести код у форматі XX-XXX</span>
             </div>
             <div class="checkout-form__group checkout-form__group--hidden">
                 <input type="text" id="otherCity" name="otherCity" class="checkout-form__input">
                 <label for="otherCity" class="checkout-form__label">Місто *</label>
                 <span class="checkout-form__checkmark"></span>
+                <span class="checkout-form__error">Обов’язкове поле</span>
+                <span class="checkout-form__not-validated">Некоректна назва міста</span>
             </div>
             <div class="checkout-form__group checkout-form__group--hidden">
                 <input type="text" id="otherAddress" name="otherAddress" class="checkout-form__input">
                 <label for="otherAddress" class="checkout-form__label">Вулиця і номер будинку *</label>
                 <span class="checkout-form__checkmark"></span>
+                <span class="checkout-form__error">Обов’язкове поле</span>
+                <span class="checkout-form__not-validated">Некоректна адреса</span>
             </div>
             
             <div class="checkout-form__group">

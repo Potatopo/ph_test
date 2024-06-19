@@ -83,6 +83,16 @@ body {
         width: 100%;
     }
 
+    .checkout-form__error,
+    .checkout-form__not-validated {
+        display: none;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 12px;
+        margin-top: 8px;
+        color: $--red;
+    }
+
     &__input {
         padding: 22px 16px 8px 16px;
         background: $--surface-light-grey;
@@ -113,6 +123,20 @@ body {
 
             ~.checkout-form__label {
                 color: $--red;
+            }
+
+            ~.checkout-form__error {
+                display: block;
+            }
+        }
+
+        &.not-validated {
+            ~.checkout-form__not-validated {
+                display: block;
+            }
+
+            ~.checkout-form__error {
+                display: none;
             }
         }
     }
@@ -146,7 +170,7 @@ body {
 
     &__input:focus+label,
     &__input.filled+label {
-        top: 0;
+        top: 2px;
         font-size: 12px;
         transform: translateY(calc(100% - 12px));
     }
